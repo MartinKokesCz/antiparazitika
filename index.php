@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <script>
+
+  $(document).ready(function() {
+
+    // $('.form-check input').change(function() {
+    //   alert("hey!");
+    // });
+
+    $('.form-check input').on('click', function () {
+                if($('.form-check input:checked').length > 0) {
+                  $('.product-item').hide();
+                  var classfilter = ["product-item"];
+                  $('.form-check input:checked').each(function () {
+                      //classfilter= classfilter + "." + $(this).attr('rel');
+                      classfilter.push($(this).attr('rel'));
+                  });
+                  //$('.product-item.' + $(this).attr('rel')).show();
+                  for (var i = 0, len = classfilter.length; i < len; i++) {
+                    $('.product-item').each(function() {
+                      if($(this).hasClass(classfilter[i])) {
+                        console.log(classfilter[i]);
+                        $(this).show();
+                      }
+                    });
+                  }
+
+                  //$('.product-item'+ classfilter).show();
+                } else {
+                  $('.product-item').show();
+                }
+            });
+
+  });
+
+  </script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">SUPER ZOO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Filip</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="category.html">Je super<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html">řidič</a>
+                </li>
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary btn-number">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <a class="btn btn-success btn-sm ml-3" href="cart.html">
+                    <i class="fa fa-shopping-cart"></i> Cart
+                    <span class="badge badge-light">3</span>
+                </a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="category.html">Category</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sub-category</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container text-center my-5">
+    <h1 class="jumbotron-heading">Velký antiparazitní rádce pro psy</h1>
+    <p class="lead text-muted mb-0">pokud nemáte pejska, tak máme <a href="#">rádce i pro číču</a></p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-3">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase">Požadované vlastnosti</div>
+                <ul class="list-group category_block">
+                    <li class="list-group-item">
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" rel="domacnost-s-malymi-detmi">
+                          <label class="form-check-label" for="exampleCheck1">Domácnost s malými dětmi</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck2" rel="domacnost-s-kockami">
+                          <label class="form-check-label" for="exampleCheck2">Domácnost s kočkami</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                      <p>Aplikace na štěně</p>
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck3" rel="aplikace-na-stene-od-7-tydnu">
+                          <label class="form-check-label" for="exampleCheck3">od 7 týdnů</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck4" rel="aplikace-na-stene-od-6-mesicu">
+                            <label class="form-check-label" for="exampleCheck4">od 6 měsíců</label>
+                          </div>
+                          <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck5" rel="aplikace-na-stene-od-3-mesicu">
+                              <label class="form-check-label" for="exampleCheck5">od 3 měsíců</label>
+                            </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck6" rel="vodeodolny">
+                          <label class="form-check-label" for="exampleCheck6">Voděodolný</label>
+                        </div>
+
+
+
+                    </li>
+                    <li class="list-group-item">
+                      <p>Účinkuje proti:</p>
+                      <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck7" rel="ucinkuje-proti-blechy">
+                          <label class="form-check-label" for="exampleCheck7">blechy</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck8" rel="ucinkuje-proti-klistata">
+                            <label class="form-check-label" for="exampleCheck8">klíšťata</label>
+                          </div>
+                          <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck9" rel="ucinkuje-proti-vsenky">
+                              <label class="form-check-label" for="exampleCheck9">všenky</label>
+                            </div>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 product-item vodeodolny">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 1</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 product-item vodeodolny">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 2</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 product-item ucinkuje-proti-vsenky domacnost-s-malymi-detmi">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 3</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 product-item domacnost-s-kockami aplikace-na-stene-od-3-mesicu  ">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 4</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 product-item aplikace-na-stene-od-6-mesicu  vodeodolny ucinkuje-proti-blechy">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 5</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 product-item aplikace-na-stene-od-7-tydnu vodeodolny domacnost-s-malymi-detmi ucinkuje-proti-klistata">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Product title 6</a></h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block">99.00 $</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
